@@ -4,9 +4,6 @@ set nocompatible
 " Helps force plug-ins to load correctly when it is turned back on below.
 filetype off
 
-" Turn on syntax highlighting.
-syntax on
-
 " For plug-ins to load correctly.
 filetype plugin indent on
 
@@ -88,17 +85,20 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
+"
+"Plug 'dikiaap/minimalist'
+"Plug 'jacoborus/tender.vim'
+"Plug 'danilo-augusto/vim-afterglow'
+"Plug 'morhetz/gruvbox'
+"
+"call plug#end()
 
-Plug 'dikiaap/minimalist'
-Plug 'jacoborus/tender.vim'
-Plug 'danilo-augusto/vim-afterglow'
-Plug 'morhetz/gruvbox'
+let g:solarized_termcolors=256
+syntax enable
+set background=dark
+colorscheme solarized
 
-call plug#end()
-
-set t_Co=256
-colorscheme minimalist
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
