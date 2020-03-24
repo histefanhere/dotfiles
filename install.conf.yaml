@@ -1,3 +1,18 @@
+- defaults:
+    link:
+      force: True
+      create: True
+
 - clean: []
-- link: {}
-- shell: []
+- link:
+    ~/.vim:
+      path: vim
+    ~/.bashrc:
+      path: bashrc
+    ~/.vimrc: vimrc
+# Sytnax magic, equivilant to ~/scripts.yaml: scripts.yaml
+    ~/scripts.yaml:
+
+# Recomended by the dotfiles_template repo
+- shell:
+  - git submodule update --init --recursive
