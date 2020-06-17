@@ -5,8 +5,11 @@ config:
     borderless: 1
 
   replace:
-    firefox_win: C:\Program Files\Mozilla Firefox\firefox.exe
+    firefox_win: C:\"Program Files"\"Mozilla Firefox"\firefox.exe
 
+#############################
+# MOST USED
+#############################
 Most Used:
   Firefox:
     key: f
@@ -17,7 +20,7 @@ Most Used:
   Terminal:
     key: t
     cmd:
-      windows_pc: start cmd /k cd C:\Users\stefa\Desktop
+      windows_pc: start /d C:\Users\stefa\Desktop cmd
       linux_laptop: gnome-terminal
   
   RC Server:
@@ -34,7 +37,7 @@ Most Used:
 #############################
 # BROWSER
 #############################
-Sites:
+Browser:
   Messenger:
     key: m
     cmd:
@@ -106,7 +109,7 @@ School:
       linux_laptop: firefox https://student.auckland.ac.nz
 
 #############################
-# Other
+# OTHER
 #############################
 Other:
   Spotify:
