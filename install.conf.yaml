@@ -5,6 +5,8 @@
 
 - clean: []
 - link:
+    ~/.bash_profile:
+      path: bash_profile
     ~/.vim:
       path: vim
     ~/.bashrc:
