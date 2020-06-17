@@ -7,17 +7,34 @@ config:
   replace:
     firefox_win: C:\Program Files\Mozilla Firefox\firefox.exe
 
-
-#############################
-# BROWSER
-#############################
-Browser:
+Most Used:
   Firefox:
     key: f
     cmd:
       windows_pc: $firefox_win
       linux_laptop: firefox
+  
+  Terminal:
+    key: t
+    cmd:
+      windows_pc: start cmd /k cd C:\Users\stefa\Desktop
+      linux_laptop: gnome-terminal
+  
+  RC Server:
+    key: r
+    cmd:
+      windows_pc: start cmd /k ssh stoofin@192.168.1.30
+      linux_laptop: firefox
+  
+  Krunker:
+    key: k
+    cmd:
+      windows_pc: C:\Users\stefa\Desktop\Apps\games\MTZ Client v1\MTZ Client v1.exe
 
+#############################
+# BROWSER
+#############################
+Sites:
   Messenger:
     key: m
     cmd:
@@ -88,27 +105,10 @@ School:
       windows_pc: $firefox_win https://student.auckland.ac.nz
       linux_laptop: firefox https://student.auckland.ac.nz
 
-
 #############################
-# GAMES
+# Other
 #############################
-Games:
-  Krunker:
-    key: k
-    cmd:
-      windows_pc: C:\Program Files\Yendis Entertainment Pty Ltd\Official Krunker.io Client\Official Krunker.io Client.exe
-
-
-#############################
-# TOOLS
-#############################
-Tools:
-  Prompt:
-    key: p
-    cmd:
-      windows_pc: cmd /K cd /d C:\Users\stefa\Desktop
-      linux_laptop: gnome-terminal
-
+Other:
   Spotify:
     key: s
     cmd:
@@ -116,7 +116,7 @@ Tools:
       linux_laptop: firefox
 
   PuTTY:
-    key: t
+    key: p
     cmd:
       windows_pc: C:\Program Files\PuTTY
       linux_laptop: firefox
