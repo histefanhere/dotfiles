@@ -85,20 +85,43 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"call plug#begin('~/.vim/plugged')
-"
-"Plug 'dikiaap/minimalist'
-"Plug 'jacoborus/tender.vim'
-"Plug 'danilo-augusto/vim-afterglow'
-"Plug 'morhetz/gruvbox'
-"
-"call plug#end()
+call plug#begin('~/.vim/plugged')
 
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-airline/vim-airline'
+Plug 'valloric/youcompleteme'
+Plug 'airblade/vim-gitgutter'
+
+call plug#end()
+
+" Solarized Colour Scheme
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
 
+" For gitgutter - sets the update time from 4000 to 100, updates quicker
+set updatetime=100
+
+nnoremap gb :ls<CR>:b<Space>
+
+" For airline - show buffers when only one tab is open
+let g:airline#extensions#tabline#enabled = 1
+
+" Unneccesary, since we show the mode in the statusline now!
+set noshowmode
+
+" Toggle NERDTree with Ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+
+" Auto open NERDTree if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Tab and Shift-Tab to next/previous buffer
+" noremap <Tab> :bn<CR>
+" noremap <S-Tab> :bp<CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -109,6 +132,8 @@ nnoremap <C-H> <C-W><C-H>
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+
+set hidden
 
 " I should get this instead: https://github.com/tmhedberg/SimpylFold
 " READING THROUGH THIS: https://realpython.com/vim-and-python-a-match-made-in-heaven/
