@@ -40,9 +40,6 @@ set matchpairs+=<:>
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
-" Show line numbers
-set number
-
 " Encoding
 set encoding=utf-8
 
@@ -82,6 +79,8 @@ colorscheme solarized
 
 nnoremap gb :ls<CR>:b<Space>
 
+let g:airline#extensions#tabline#enabled = 1
+
 " Unneccesary, since we show the mode in the statusline now!
 set noshowmode
 
@@ -98,4 +97,12 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 set hidden
+
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 
