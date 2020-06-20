@@ -33,6 +33,12 @@ Most Used:
     key: k
     cmd:
       windows_pc: C:\Users\stefa\Desktop\Apps\games\MTZ Client v1\MTZ Client v1.exe
+  
+  Home Assistant:
+    key: h
+    cmd:
+      windows_pc: $firefox_win http://192.168.1.30:8123
+      linux_laptop: firefox http://192.168.1.30:8123
 
 #############################
 # BROWSER
