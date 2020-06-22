@@ -37,8 +37,8 @@ set showcmd
 set matchpairs+=<:>
 
 " Display different types of white spaces.
-set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+" set list
+" set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 " Encoding
 set encoding=utf-8
