@@ -40,6 +40,17 @@ Most Used:
       windows_pc: $firefox_win http://192.168.1.30:8123
       linux_laptop: firefox http://192.168.1.30:8123
 
+  Habitica:
+    key: b
+    cmd:
+      windows_pc: $firefox_win https://habitica.com/
+      linux_laptop: firefox https://habitica.com/
+    
+  Shruggie:
+    key: s
+    cmd:
+      windows_pc: C:\"Program Files"\AutoHotkey\AutoHotKey.exe C:\Users\stefa\Desktop\scripts\autohotkey\used\shrug.ahk
+
 #############################
 # BROWSER
 #############################
