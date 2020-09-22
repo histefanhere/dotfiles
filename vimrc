@@ -10,16 +10,24 @@ filetype plugin indent on
 " Turn off modelines
 set modelines=0
 
-set formatoptions=tcqrn1
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set smartindent
-set noshiftround
+" Automatically wrap text that extends beyond the screen length.
 set wrap
-set noswapfile
+" Vim's auto indentation feature does not work properly with text copied from outside of Vim. Press the <F2> key to toggle paste mode on/off.
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F2>
 
+" Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
+" set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+" Display 5 lines above/below the cursor when scrolling with a mouse.
+set scrolloff=5
 " Fixes common backspace problems
 set backspace=indent,eol,start
 
@@ -37,8 +45,14 @@ set showcmd
 set matchpairs+=<:>
 
 " Display different types of white spaces.
-" set list
-" set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+
+" Show line numbers
+set number
+
+" Set status line display
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
 " Encoding
 set encoding=utf-8
@@ -52,6 +66,17 @@ set ignorecase
 " Include only uppercase words with uppercase search term
 set smartcase
 
+" Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
+set viminfo='100,<9999,s100
+
+" Map the <Space> key to toggle a selected fold opened/closed.
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
+" Automatically save and load folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview"
+
 " https://github.com/junegunn/vim-plug
 " Will auto-download vim-plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -63,10 +88,10 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'valloric/youcompleteme'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -75,10 +100,13 @@ let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
-:set t_ut=""
+
+" For gitgutter - sets the update time from 4000 to 100, updates quicker
+set updatetime=100
 
 nnoremap gb :ls<CR>:b<Space>
 
+" For airline - show buffers when only one tab is open
 let g:airline#extensions#tabline#enabled = 1
 
 " Unneccesary, since we show the mode in the statusline now!
@@ -87,8 +115,13 @@ set noshowmode
 " Toggle NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 
-set splitbelow
-set splitright
+" Auto open NERDTree if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Tab and Shift-Tab to next/previous buffer
+" noremap <Tab> :bn<CR>
+" noremap <S-Tab> :bp<CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -96,15 +129,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
 set hidden
 
-:set number relativenumber
+" I should get this instead: https://github.com/tmhedberg/SimpylFold
+" READING THROUGH THIS: https://realpython.com/vim-and-python-a-match-made-in-heaven/
+" Should learn how to use vim-plug: https://github.com/junegunn/vim-plug
 
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
