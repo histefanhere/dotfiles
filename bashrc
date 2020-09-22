@@ -127,4 +127,3 @@ alias p='python3'
 alias scrls='screen -ls '
 alias scrr='screen -r '
 
-alias back='cd ..'
