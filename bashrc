@@ -131,3 +131,5 @@ alias scrr='screen -r '
 # For these to work `xclip` must be installed.
 alias getclip='xclip -selection clipboard -o'
 alias setclip='xclip -selection clipboard'
+
+alias editor=vim
