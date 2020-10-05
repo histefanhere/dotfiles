@@ -129,7 +129,7 @@ alias scrr='screen -r '
 
 # Aliases for copying and pasting from the X Clipboard.
 # For these to work `xclip` must be installed.
-alias getclip='xclip -selection clipboard -o'
-alias setclip='xclip -selection clipboard'
+alias clipget='xclip -selection clipboard -o'
+alias clipset='xclip -selection clipboard'
 
 alias editor=vim
