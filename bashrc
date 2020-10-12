@@ -133,3 +133,6 @@ alias clipget='xclip -selection clipboard -o'
 alias clipset='xclip -selection clipboard'
 
 alias editor=vim
+
+# Magic space, wow so magic
+bind Space:magic-space
