@@ -1,56 +1,70 @@
-" Set compatibility to Vim only.
 set nocompatible
 
-" Helps force plug-ins to load correctly when it is turned back on below.
-filetype off
 
-" For plug-ins to load correctly.
-filetype plugin indent on
-
-" Turn off modelines
+"===============
+" MISCELLANEOUS
+"=============== 
+set noerrorbells
+" Turn off modelines - security
 set modelines=0
+" Speed up scrolling in Vim
+set ttyfast
+" Encoding
+set encoding=utf-8
+" Fixes common backspace problems
+set backspace=indent,eol,start
 
-set formatoptions=tcqrn1
+
+"============
+" FORMATTING
+"============
+set formatoptions=tcqn1
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smartindent
 set noshiftround
-set wrap
+set nowrap
 set noswapfile
 
-" Fixes common backspace problems
-set backspace=indent,eol,start
 
-" Speed up scrolling in Vim
-set ttyfast
+"==============
+" LINE NUMBERS 
+"==============
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 
-" Status bar
-set laststatus=2
 
-" Display options
-set showmode
-set showcmd
-
-" Highlight matching pairs of brackets. Use the '%' character to jump between them.
-set matchpairs+=<:>
-
-" Display different types of white spaces.
-" set list
-" set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-
-" Encoding
-set encoding=utf-8
-
-" Highlight matching search patterns
+"========
+" SEARCH
+"========
 set hlsearch
-" Enable incremental search
 set incsearch
-" Include matching uppercase words with lowercase search term
 set ignorecase
-" Include only uppercase words with uppercase search term
 set smartcase
+
+
+"============
+" NAVIGATION
+"============
+set hidden
+nnoremap gb :ls<CR>:b<Space>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
+"=========
+" PLUGINS
+"=========
+filetype off
+filetype plugin indent on
 
 " https://github.com/junegunn/vim-plug
 " Will auto-download vim-plug if not installed
@@ -61,50 +75,26 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-
-Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'valloric/youcompleteme'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-fugitive'
-
 call plug#end()
 
-" Solarized Colour Scheme
+
+"=======
+" THEME
+"=======
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
 :set t_ut=""
 
-nnoremap gb :ls<CR>:b<Space>
 
+"============
+" STATUS BAR
+"============
+set laststatus=2
+set noshowmode
+set showcmd
+" Display the name of all the buffers when there's only one tab open
 let g:airline#extensions#tabline#enabled = 1
 
-" Unneccesary, since we show the mode in the statusline now!
-set noshowmode
-
-" Toggle NERDTree with Ctrl+n
-map <C-n> :NERDTreeToggle<CR>
-
-set splitbelow
-set splitright
-
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-set hidden
-
-:set number relativenumber
-
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
