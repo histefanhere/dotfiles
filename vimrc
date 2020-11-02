@@ -1,5 +1,6 @@
 set nocompatible
 
+let mapleader=" "
 
 "===============
 " MISCELLANEOUS
@@ -53,7 +54,12 @@ set smartcase
 " NAVIGATION
 "============
 set hidden
-nnoremap gb :ls<CR>:b<Space>
+" Buffer navigation
+map <Leader>n :bn<CR>
+map <Leader>p :bp<CR>
+map <Leader>d :bd<CR>
+map <Leader>b :ls<CR>:b<Space>
+" Window navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
