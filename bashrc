@@ -132,7 +132,13 @@ alias scrr='screen -r '
 alias clipget='xclip -selection clipboard -o'
 alias clipset='xclip -selection clipboard'
 
-alias editor=vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 # Magic space, wow so magic
 bind Space:magic-space
+
+# Use https://github.com/chubin/cheat.sh as an awesome cheat sheet, only requirement is curl and an internet connection
+function cheat() {
+    curl cheat.sh/"$@";
+}
