@@ -14,6 +14,7 @@
     ~/.vimrc: vimrc
 # Sytnax magic, equivilant to ~/scripts.yaml: scripts.yaml
     ~/scripts.yaml:
+    ~/.screenrc: screenrc
 
 # Recomended by the dotfiles_template repo
 - shell:

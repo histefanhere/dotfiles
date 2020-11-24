@@ -1,0 +1,44 @@
+# Turn off the welcome message
+startup_message off
+
+# Disable visual bell
+vbell off
+
+# Set scrollback buffer to 10000
+defscrollback 10000
+
+# Customize the status line
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+# the following two lines give a two-line status, with the current window highlighted
+hardstatus alwayslastline
+hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{B}%m/%d %{W}%C%A%{g}]'
+
+
+# Enable mouse scrolling and scrollbar history scrolling
+termcapinfo xterm* ti@:te@
+
+
+# One way of navigating regions
+bind j focus down
+bind k focus up
+bind l focus right
+bind h focus left
+
+# And another way!
+# navigating regions with Ctrl-arrows
+bindkey "^[[1;5D" focus left
+bindkey "^[[1;5C" focus right
+bindkey "^[[1;5A" focus up
+bindkey "^[[1;5B" focus down
+
+# switch windows with F3 (prev) and F4 (next)
+bindkey "^[OR" prev
+bindkey "^[OS" next
+
+
+# A bunch of auto-save region stuff
+layout autosave on
+source .sl
+layout save def
+
