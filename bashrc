@@ -120,8 +120,8 @@ fi
 # My own custom colouring scheme
 PS1="${debian_chroot:+($debian_chroot)}\[\033[36m\][\@] \[\033[32;1m\]\u\[\033[00m\]@\[\033[34;1m\]\h\[\033[00m\]: \[\033[31;1m\]\w\[\033[33m\]\$\[\033[00m\] "
 
-
-alias p='python3'
+# Add $HOME/.local/bin to my PATH
+export PATH="$PATH:$HOME/.local/bin"
 
 # Useful screen aliases
 alias scrls='screen -ls '
@@ -132,6 +132,7 @@ alias scrr='screen -r '
 alias clipget='xclip -selection clipboard -o'
 alias clipset='xclip -selection clipboard'
 
+# Sets Vim as my default text editor, duh.
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
