@@ -5,6 +5,8 @@ let mapleader=" "
 "===============
 " MISCELLANEOUS
 "=============== 
+" Goodbye netrwhist file!
+let g:netrw_dirhistmax = 0
 set noerrorbells
 " Turn off modelines - security
 set modelines=0
