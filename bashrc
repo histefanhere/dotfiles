@@ -143,3 +143,5 @@ bind Space:magic-space
 function cheat() {
     curl cheat.sh/"$@";
 }
+
+alias please="sudo"
