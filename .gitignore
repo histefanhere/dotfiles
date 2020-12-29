@@ -1,1 +1,5 @@
-vim/view/*
+# Ignore annoying vim stuff
+files/vim/view/*
+
+# I don't want my vim plugins to be saved to the repo - they can be installed via `:PlugInstall`
+files/vim/plugged/*
