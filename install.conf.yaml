@@ -6,15 +6,17 @@
 - clean: []
 - link:
     ~/.bash_profile:
-      path: bash_profile
+      path: files/.bash_profile
     ~/.vim:
-      path: vim
+      path: files/vim
     ~/.bashrc:
-      path: bashrc
-    ~/.vimrc: vimrc
-# Sytnax magic, equivilant to ~/scripts.yaml: scripts.yaml
+      path: files/.bashrc
+    ~/.vimrc:
+      path: files/.vimrc
     ~/scripts.yaml:
-    ~/.screenrc: screenrc
+      path: files/scripts.yaml
+    ~/.screenrc:
+      path: files/.screenrc
 
 # Recomended by the dotfiles_template repo
 - shell:
