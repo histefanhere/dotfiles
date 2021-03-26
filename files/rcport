@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# This script forwards some remote port on the server to the same port on your local machine.
+# This means you can access ports that aren't open to the internet.
+
+# Credit where credit is due, the idea for this came to me from Engineer Man on Youtube:
+# https://youtu.be/Zuwa8zlfXSY
+
+# USAGE:
+# - rcport 1234
+#   forwards port 1234 on the server to 127.0.0.1:1234
+
+if [[ -z "${RC_PORT}" ]]; then
+    echo "RC_PORT not set - please check your .bash_secrets."
+    exit 1
+fi
+
+if [[ -z "${1}" ]]; then
+    echo "Please specify a port."
+    exit 1
+fi
+
+echo "Running connection from ${RC_HOSTNAME}:$1 to 127.0.0.1:$1"
+
+# This is the magic line
+ssh -L $1:127.0.0.1:$1 $USER@$RC_HOSTNAME -N -p $RC_PORT
+
+exit 0
+

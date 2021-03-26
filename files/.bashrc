@@ -117,6 +117,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#========================
+# CUSTOM STUFF
+#=======================
+
 # My own custom colouring scheme
 PS1="${debian_chroot:+($debian_chroot)}\[\033[36m\][\@] \[\033[32;1m\]\u\[\033[00m\]@\[\033[34;1m\]\h\[\033[00m\]: \[\033[31;1m\]\w\[\033[33m\]\$\[\033[00m\] "
 
@@ -128,6 +132,7 @@ alias scrls='screen -ls '
 alias scrr='screen -r '
 
 # Aliases for copying and pasting from the X Clipboard.
+# e.g, `cat file | clipset` will copy the contents of a file into your clipboard.
 # For these to work `xclip` must be installed.
 alias clipget='xclip -selection clipboard -o'
 alias clipset='xclip -selection clipboard'
@@ -144,4 +149,13 @@ function cheat() {
     curl cheat.sh/"$@";
 }
 
+# I saw a funny meme on the internet where you alias sudo to please, adds so much humor to your commands
 alias please="sudo"
+
+# Load in my bash secrets file which ISN'T apart of the git repository.
+if [ -f ~/.bash_secrets ]; then
+    . ~/.bash_secrets
+else
+    echo "NOTE: ~/.bash_secrets not available. Some features might not work."
+fi
+

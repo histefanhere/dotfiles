@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+if [[ -z "${RC_PORT}" ]]; then
+    echo "RC_PORT not set - please check your .bash_secrets."
+    exit
+fi
+
+ssh $USER@$RC_HOSTNAME -p $RC_PORT
+

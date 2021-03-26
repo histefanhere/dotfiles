@@ -17,6 +17,10 @@
       path: files/scripts.yaml
     ~/.screenrc:
       path: files/.screenrc
+    ~/.local/bin/rcport:
+      path: files/rcport
+    ~/.local/bin/rc:
+      path: files/rc
 
 # Recomended by the dotfiles_template repo
 - shell:
