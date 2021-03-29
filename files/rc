@@ -6,5 +6,5 @@ if [[ -z "${RC_PORT}" ]]; then
     exit
 fi
 
-ssh $USER@$RC_HOSTNAME -p $RC_PORT
+ssh $RC_USER@$RC_HOSTNAME -p $RC_PORT
 
