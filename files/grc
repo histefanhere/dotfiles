@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+if [[ -z "${GRC_PORT}" ]]; then
+    echo "GRC_PORT not set - please check your .bash_secrets."
+    exit
+fi
+
+ssh $RC_USER@$GRC_HOSTNAME -p $GRC_PORT
+

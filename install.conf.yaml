@@ -21,6 +21,10 @@
       path: files/rcport
     ~/.local/bin/rc:
       path: files/rc
+    ~/.local/bin/grcport:
+      path: files/grcport
+    ~/.local/bin/grc:
+      path: files/grc
 
 # Recomended by the dotfiles_template repo
 - shell:
