@@ -159,3 +159,7 @@ else
     echo "NOTE: ~/.bash_secrets not available. Some features might not work."
 fi
 
+# docker-compose aliases to save me lots of time
+alias dcup="docker-compose up -d"
+alias dcdown="docker-compose down"
+alias dcdownrm="docker-compose down --rmi all -v"
