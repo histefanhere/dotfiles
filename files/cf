@@ -1,28 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env python3
+"""Count the number of files in each of the folders in the current directory"""
 
-# Recursively count the number of files in each of the folders in the current directory
+import os
+import subprocess
 
-declare -A fileCounts
+folders = [f"{folder}/" for folder in os.listdir(".") if os.path.isdir(folder)]
 
-# Loop through all the folders in the current directory
-for folder in $(ls -d */)
-do
-    numFiles=$(find $folder -type f | wc -l)
-    fileCounts[$folder]=$numFiles
-done
+sizes = []
+for folder in folders:
+    out = subprocess.check_output(f"find \"{folder}\" -type f | wc -l", shell=True)
+    files = int(out.decode("utf-8").strip())
+    sizes.append((folder, files))
 
-# Calculate the total number of files
-totalFiles=0
-for folder in "${!fileCounts[@]}"
-do
-    numFiles=${fileCounts[$folder]}
-    totalFiles=$((totalFiles + numFiles))
-done
+sizes.sort(key=lambda x: x[1])
 
-# Print the results
-for folder in "${!fileCounts[@]}"
-do
-    numFiles=${fileCounts[$folder]}
-    echo "$folder: $numFiles"
-done | sort -n -k2
-echo "Total number of files: $totalFiles"
+sizes.append(
+    ("./", sum([files for folder, files in sizes]) + len([file for file in os.listdir(".") if os.path.isfile(file)]),)
+)
+max_size = len(str(sizes[-1][1]))
+
+for folder, files in sizes:
+    print(f"{files:>{max_size}} {folder}")
