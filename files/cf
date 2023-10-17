@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Recursively count the number of files in each of the folders in the current directory
+
+declare -A fileCounts
+
+# Loop through all the folders in the current directory
+for folder in $(ls -d */)
+do
+    numFiles=$(find $folder -type f | wc -l)
+    fileCounts[$folder]=$numFiles
+done
+
+# Calculate the total number of files
+totalFiles=0
+for folder in "${!fileCounts[@]}"
+do
+    numFiles=${fileCounts[$folder]}
+    totalFiles=$((totalFiles + numFiles))
+done
+
+# Print the results
+for folder in "${!fileCounts[@]}"
+do
+    numFiles=${fileCounts[$folder]}
+    echo "$folder: $numFiles"
+done | sort -n -k2
+echo "Total number of files: $totalFiles"

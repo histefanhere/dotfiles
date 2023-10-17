@@ -25,6 +25,8 @@
       path: files/grcport
     ~/.local/bin/grc:
       path: files/grc
+    ~/.local/bin/cf:
+      path: files/cf
 
 # Recomended by the dotfiles_template repo
 - shell:
