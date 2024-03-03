@@ -1,8 +1,5 @@
 config:
-  windows_pc:
-    borderless: 2
-  linux_laptop:
-    borderless: 1
+  theme: light
 
   replace:
     firefox_win: C:\"Program Files"\"Mozilla Firefox"\firefox.exe
@@ -10,61 +7,43 @@ config:
 #############################
 # MOST USED
 #############################
-Most Used:
-  Firefox:
-    key: f
-    cmd:
-      windows_pc: $firefox_win
-      linux_laptop: firefox
-  
-  Terminal:
+groups:
+- title: Most Used
+  scripts:
+
+  - name: Terminal
     key: t
-    cmd:
+    command:
       windows_pc: start /d C:\Users\stefa\Desktop cmd
       linux_laptop: gnome-terminal
-  
-  RC Server:
-    key: r
-    cmd:
-      windows_pc: start cmd /k ssh stoofin@192.168.1.30
-      linux_laptop: firefox
-  
-  Krunker:
-    key: k
-    cmd:
-      windows_pc: C:\Users\stefa\Desktop\Apps\games\MTZ Client v1\MTZ Client v1.exe
-  
-  Home Assistant:
+
+  - name: Home Assistant
     key: h
-    cmd:
+    command:
       windows_pc: $firefox_win http://192.168.1.30:8123
-      linux_laptop: firefox http://192.168.1.30:8123
+      linux_laptop: thorium-browser https://youtube.com
 
 #############################
 # BROWSER
 #############################
-Browser:
-  Messenger:
+- title: Browser
+  scripts:
+
+  - name: Messenger
     key: m
-    cmd:
+    command:
       windows_pc: $firefox_win https://www.messenger.com
       linux_laptop: firefox https://www.messenger.com
 
-  Github:
+  - name: Github
     key: g
-    cmd:
+    command:
       windows_pc: $firefox_win https://github.com/histefanhere
-      linux_laptop: firefox https://github.com/histefanhere
+      linux_laptop: thorium-browser https://github.com/histefanhere
 
-  Duolingo:
-    key: d
-    cmd:
-      windows_pc: $firefox_win https://duolingo.com
-      linux_laptop: firefox https://duolingo.com
-
-  Discord:
+  - name: Discord
     key: i
-    cmd:
+    command:
       windows_pc: $firefox_win https://discordapp.com/channels/@me
       linux_laptop: firefox https://discordapp.com/channels/@me
 
@@ -72,22 +51,23 @@ Browser:
 #############################
 # GOOGLE
 #############################
-Google:
-  Google Calendar:
+- title: Google
+  scripts:
+  - name: Google Calendar
     key: c
-    cmd:
+    command:
       windows_pc: $firefox_win https://calendar.google.com
       linux_laptop: firefox https://calendar.google.com
 
-  Google Drive:
+  - name: Google Drive
     key: d
-    cmd:
+    command:
       windows_pc: $firefox_win https://drive.google.com/drive
       linux_laptop: firefox https://drive.google.com/drive
 
-  Gmail:
+  - name: Gmail
     key: m
-    cmd:
+    command:
       windows_pc: $firefox_win https://mail.google.com
       linux_laptop: firefox https://main.google.com
 
@@ -95,37 +75,41 @@ Google:
 #############################
 # SCHOOL
 #############################
-School:
-  Canvas:
+- title: School
+  scripts:
+  
+  - name: Canvas
     key: c
-    cmd:
+    command:
       windows_pc: $firefox_win https://canvas.auckland.ac.nz
       linux_laptop: firefox https://canvas.auckland.ac.nz
 
-  MyAucklandUni:
+  - name: MyAucklandUni
     key: m
-    cmd:
+    command:
       windows_pc: $firefox_win https://www.myaucklanduni.ac.nz/en.html
       linux_laptop: firefox https://www.myaucklanduni.ac.nz/en.html
 
-  Student Services Online:
+  - name: Student Services Online
     key: s
-    cmd:
+    command:
       windows_pc: $firefox_win https://student.auckland.ac.nz
       linux_laptop: firefox https://student.auckland.ac.nz
 
 #############################
 # OTHER
 #############################
-Other:
-  Spotify:
+- title: Other
+  scripts:
+
+  - name: Spotify
     key: s
-    cmd:
+    command:
       windows_pc: C:\Users\stefa\AppData\Roaming\Spotify\Spotify.exe
       linux_laptop: firefox
 
-  PuTTY:
+  - name: PuTTY
     key: p
-    cmd:
+    command:
       windows_pc: C:\Program Files\PuTTY
       linux_laptop: firefox

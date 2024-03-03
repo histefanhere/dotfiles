@@ -173,3 +173,4 @@ alias mydf='df -hH -x squashfs -x tmpfs -x devtmpfs'
 
 # mydu is a modification to du that shows the size of each folder in the current directory
 alias mydu='du -h --max-depth 1 .'
+. "$HOME/.cargo/env"
