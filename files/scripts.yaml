@@ -23,6 +23,17 @@ groups:
       windows_pc: $firefox_win http://192.168.1.30:8123
       linux_laptop: thorium-browser https://youtube.com
 
+  - name: RC Server
+    key: r
+    command:
+      windows_pc: start cmd /k ssh stoofin@192.168.1.30
+      linux_laptop: gnome-terminal -- $PUB_SSH_CMD
+
+  - name: Bedside Lamp
+    key: l
+    command: "curl -H 'Authorization: Bearer $HASS_TOKEN' -H 'Content-Type: application/json' -d '{\"entity_id\": \"light.bedroom_lamp_switch\"}' $LAMP_URL"
+
+
 #############################
 # BROWSER
 #############################
