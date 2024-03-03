@@ -3,6 +3,3 @@ files/vim/view/*
 
 # I don't want my vim plugins to be saved to the repo - they can be installed via `:PlugInstall`
 files/vim/plugged/*
-
-.gitsecret/keys/random_seed
-!*.secret
