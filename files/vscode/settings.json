@@ -4,7 +4,6 @@
     "discord.lowerDetailsEditing": "In {workspace}",
     "discord.lowerDetailsNotFound": "Line {currentline}/{totallines}",
     "latex-workshop.view.pdf.viewer": "tab",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
     "liveServer.settings.donotShowInfoMsg": true,
     "liveServer.settings.donotVerifyTags": true,
     "extensions.ignoreRecommendations": false,
@@ -13,12 +12,9 @@
     ],
     "explorer.confirmDragAndDrop": false,
     "latex-workshop.message.update.show": false,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "latex-workshop.latex.tools": [
 
         {
@@ -116,5 +112,66 @@
     "discord.lowerDetailsIdling": "Sitting idle",
     "discord.lowerDetailsNoWorkspaceFound": "Line {current_line}/{total_lines}",
     "workbench.colorTheme": "Monokai",
-    "editor.fontSize": 14
+    "editor.fontSize": 14,
+    "python.defaultInterpreterPath": "C:\\Users\\stefa\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "security.workspace.trust.untrustedFiles": "open",
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false,
+    "workbench.editor.untitled.hint": "hidden",
+    "git.suggestSmartCommit": false,
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.profiles.windows": {
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe (migrated)": {
+            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "args": []
+        }
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        "**/.git": false
+    },
+    "markdown.extension.toc.updateOnSave": false,
+    "editor.smoothScrolling": true,
+    "editor.mouseWheelScrollSensitivity": 1.5,
+    "editor.inlineSuggest.enabled": true,
+    "window.titleBarStyle": "custom",
+    "settingsSync.ignoredSettings": [
+        "arduino.path",
+        "processing.path"
+    ],
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "yaml": false,
+        "cpp": true
+    },
+    "editor.wordWrap": "on",
+    "remote.SSH.remotePlatform": {
+        "homeassistant.local": "linux",
+        "rcserver": "linux"
+    },
+    "vscode-home-assistant.hostUrl": "http://homeassistant.local:8123",
+    "vscode-home-assistant.longLivedAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWE5ODU5OTM3Yjk0YTNlYTgyMTU4YzlhYjZmOTMxYSIsImlhdCI6MTY2Njg3NzAxOCwiZXhwIjoxOTgyMjM3MDE4fQ.Tsxh6dDcjAiTUJCunx1j9TqnQCLVWeNcL8Bt2dsPieI",
+    "esphome.dashboardUri": "http://homeassistant.local:6052/",
+    "esphome.validator": "dashboard",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "git.confirmSync": false,
+    "cSpell.language": "en-GB",
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "cSpell.enabled": false,
+    "arduino.useArduinoCli": true,
+    "arduino.analyzeOnOpen": false,
+    "jupyter.askForKernelRestart": false
 }
