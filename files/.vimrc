@@ -30,6 +30,8 @@ set smartindent
 set noshiftround
 set nowrap
 set noswapfile
+" Use <F2> to toggle paste mode, fixes auto indentation and stuff
+set pastetoggle=<F2>
 
 
 "==============
@@ -84,6 +86,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
+Plug 'rubixninja314/vim-mcfunction'
 call plug#end()
 
 

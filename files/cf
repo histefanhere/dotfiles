@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+"""Count the number of files in each of the folders in the current directory"""
+
+import os
+import subprocess
+
+folders = [f"{folder}/" for folder in os.listdir(".") if os.path.isdir(folder)]
+
+sizes = []
+for folder in folders:
+    out = subprocess.check_output(f"find \"{folder}\" -type f | wc -l", shell=True)
+    files = int(out.decode("utf-8").strip())
+    sizes.append((folder, files))
+
+sizes.sort(key=lambda x: x[1])
+
+sizes.append(
+    ("./", sum([files for folder, files in sizes]) + len([file for file in os.listdir(".") if os.path.isfile(file)]),)
+)
+max_size = len(str(sizes[-1][1]))
+
+for folder, files in sizes:
+    print(f"{files:>{max_size}} {folder}")

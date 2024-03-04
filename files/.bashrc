@@ -121,6 +121,10 @@ fi
 # CUSTOM STUFF
 #=======================
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # My own custom colouring scheme
 PS1="${debian_chroot:+($debian_chroot)}\[\033[36m\][\@] \[\033[32;1m\]\u\[\033[00m\]@\[\033[34;1m\]\h\[\033[00m\]: \[\033[31;1m\]\w\[\033[33m\]\$\[\033[00m\] "
 
@@ -159,3 +163,14 @@ else
     echo "NOTE: ~/.bash_secrets not available. Some features might not work."
 fi
 
+# docker-compose aliases to save me lots of time
+alias dcup="docker-compose up -d"
+alias dcdown="docker-compose down"
+alias dcdownrm="docker-compose down --rmi all -v"
+
+# mydf is a modification to df that only shows real drives connected to the machine
+alias mydf='df -hH -x squashfs -x tmpfs -x devtmpfs'
+
+# mydu is a modification to du that shows the size of each folder in the current directory
+alias mydu='du -h --max-depth 1 .'
+. "$HOME/.cargo/env"
