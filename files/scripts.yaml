@@ -2,7 +2,8 @@ config:
   theme: light
 
   replace:
-    firefox_win: C:\"Program Files"\"Mozilla Firefox"\firefox.exe
+    browser_win: C:\Users\stefa\AppData\Local\Thorium\Application\thorium.exe
+
 
 #############################
 # MOST USED
@@ -14,24 +15,20 @@ groups:
   - name: Terminal
     key: t
     command:
-      windows_pc: start /d C:\Users\stefa\Desktop cmd
+      windows_pc: wt
       linux_laptop: gnome-terminal
-
-  - name: Home Assistant
-    key: h
-    command:
-      windows_pc: $firefox_win http://192.168.1.30:8123
-      linux_laptop: thorium-browser https://youtube.com
 
   - name: RC Server
     key: r
     command:
-      windows_pc: start cmd /k ssh stoofin@192.168.1.30
+      windows_pc: wt ssh stoofin@192.168.1.23
       linux_laptop: gnome-terminal -- $PUB_SSH_CMD
 
   - name: Bedside Lamp
     key: l
-    command: "curl -H 'Authorization: Bearer $HASS_TOKEN' -H 'Content-Type: application/json' -d '{\"entity_id\": \"light.bedroom_lamp_switch\"}' $LAMP_URL"
+    command: 
+      windows_pc: 'curl -X POST -H "Authorization: Bearer $HASS_TOKEN" -H "Content-Type: application/json" -d "{\"entity_id\": \"light.bedroom_lamp_switch\"}" $LAMP_URL'
+      linux_laptop: "curl -H 'Authorization: Bearer $HASS_TOKEN' -H 'Content-Type: application/json' -d '{\"entity_id\": \"light.bedroom_lamp_switch\"}' $LAMP_URL"
 
 
 #############################
@@ -40,77 +37,85 @@ groups:
 - title: Browser
   scripts:
 
-  - name: Messenger
+  - name: Monkeytype
     key: m
     command:
-      windows_pc: $firefox_win https://www.messenger.com
-      linux_laptop: firefox https://www.messenger.com
+      windows_pc: $browser_win https://monkeytype.com
+      linux_laptop: xdg-open https://monkeytype.com
 
   - name: Github
     key: g
     command:
-      windows_pc: $firefox_win https://github.com/histefanhere
-      linux_laptop: thorium-browser https://github.com/histefanhere
+      windows_pc: $browser_win https://github.com/histefanhere
+      linux_laptop: xdg-open https://github.com/histefanhere
 
-  - name: Discord
-    key: i
+  - name: Home Assistant
+    key: h
     command:
-      windows_pc: $firefox_win https://discordapp.com/channels/@me
-      linux_laptop: firefox https://discordapp.com/channels/@me
+      windows_pc: $browser_win http://hass.histefanhere.com
+      linux_laptop: xdg-open https://hass.histefanhere.com
 
-
-#############################
-# GOOGLE
-#############################
-- title: Google
-  scripts:
-  - name: Google Calendar
-    key: c
+  - name: Server homepage
+    key: s
     command:
-      windows_pc: $firefox_win https://calendar.google.com
-      linux_laptop: firefox https://calendar.google.com
-
-  - name: Google Drive
-    key: d
-    command:
-      windows_pc: $firefox_win https://drive.google.com/drive
-      linux_laptop: firefox https://drive.google.com/drive
-
-  - name: Gmail
-    key: m
-    command:
-      windows_pc: $firefox_win https://mail.google.com
-      linux_laptop: firefox https://main.google.com
+      windows_pc: $browser_win https://home.histefanhere.com
+      linux_laptop: xdg-open https://home.histefanhere.com
 
 
 #############################
 # SCHOOL
 #############################
-- title: School
+- title: University
   scripts:
   
   - name: Canvas
     key: c
     command:
-      windows_pc: $firefox_win https://canvas.auckland.ac.nz
-      linux_laptop: firefox https://canvas.auckland.ac.nz
-
-  - name: MyAucklandUni
-    key: m
-    command:
-      windows_pc: $firefox_win https://www.myaucklanduni.ac.nz/en.html
-      linux_laptop: firefox https://www.myaucklanduni.ac.nz/en.html
+      windows_pc: $browser_win https://canvas.auckland.ac.nz
+      linux_laptop: xdg-open https://canvas.auckland.ac.nz
 
   - name: Student Services Online
     key: s
     command:
-      windows_pc: $firefox_win https://student.auckland.ac.nz
-      linux_laptop: firefox https://student.auckland.ac.nz
+      windows_pc: $browser_win https://student.auckland.ac.nz
+      linux_laptop: xdg-open https://student.auckland.ac.nz
+
+  - name: Large-Scale Soft. Dev.
+    key: 3
+    command:
+      windows_pc: $browser_win https://canvas.auckland.ac.nz/courses/104277
+      linux_laptop: xdg-open https://canvas.auckland.ac.nz
+
+  - name: Math. Foundations of Comp. Sci.
+    key: 5
+    command:
+      windows_pc: $browser_win https://canvas.auckland.ac.nz/courses/103602
+      linux_laptop: xdg-open https://canvas.auckland.ac.nz
+
+  - name: Machine Learning
+    key: 6
+    command:
+      windows_pc: $browser_win https://canvas.auckland.ac.nz/courses/104052
+      linux_laptop: xdg-open https://canvas.auckland.ac.nz/courses/104052
+
+  - name: Computer Graphics
+    key: 7
+    command:
+      windows_pc: $browser_win https://canvas.auckland.ac.nz/courses/103807
+      linux_laptop: xdg-open https://canvas.auckland.ac.nz/courses/103807
+
+  - name: Additive Manufacturing
+    key: 8
+    command:
+      windows_pc: $browser_win https://canvas.auckland.ac.nz/courses/104010
+      linux_laptop: xdg-open https://canvas.auckland.ac.nz/courses/104010
+
 
 #############################
-# OTHER
+# APPS
 #############################
-- title: Other
+- title: Apps
+  key: a
   scripts:
 
   - name: Spotify
@@ -119,8 +124,28 @@ groups:
       windows_pc: C:\Users\stefa\AppData\Roaming\Spotify\Spotify.exe
       linux_laptop: firefox
 
-  - name: PuTTY
-    key: p
+  - name: VSCode
+    key: v
     command:
-      windows_pc: C:\Program Files\PuTTY
+      windows_pc: C:\Users\stefa\AppData\Local\Programs\Microsoft VS Code\Code.exe
       linux_laptop: firefox
+
+  - name: Discord
+    key: d
+    command:
+      windows_pc: C:\Users\stefa\AppData\Local\Discord\Update.exe --processStart Discord.exe
+      linux_laptop: firefox
+
+
+- title: Games
+  scripts:
+
+  - name: Valorant
+    key: v
+    command:
+      windows_pc: '"D:\Riot Games\Riot Client\RiotClientServices.exe" --launch-product=valorant --launch-patchline=live'
+
+  - name: Minecraft
+    key: m
+    command:
+      windows_pc: D:\Games\PrismLauncher\prismlauncher.exe --launch Main
