@@ -84,13 +84,13 @@ groups:
     key: 3
     command:
       windows_pc: $browser_win https://canvas.auckland.ac.nz/courses/104277
-      linux_laptop: xdg-open https://canvas.auckland.ac.nz
+      linux_laptop: xdg-open https://canvas.auckland.ac.nz/courses/104277
 
   - name: Math. Foundations of Comp. Sci.
     key: 5
     command:
       windows_pc: $browser_win https://canvas.auckland.ac.nz/courses/103602
-      linux_laptop: xdg-open https://canvas.auckland.ac.nz
+      linux_laptop: xdg-open https://canvas.auckland.ac.nz/courses/103602
 
   - name: Machine Learning
     key: 6
